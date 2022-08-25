@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ a:visited {
+    color: initial;
+ }
+
+#index_title, #index_search {
+    width: fit-content;
+    margin: auto;
+}
+
+#index_search form {
+    display: flex;
+    margin: 1rem 0;
+}
+
+.search_param {
+    margin: 0 .5rem
+}
+
+.flight_result {
+    margin: 1rem;
+}
+
+#flight_results_area {
+    width: 60%;
+    margin: auto;
+}

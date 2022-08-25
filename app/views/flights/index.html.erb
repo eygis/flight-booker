@@ -1,1 +1,49 @@
-<h1>Flights</h1>
+<h1 id='index_title'><%= link_to 'Flight', root_path %></h1>
+
+
+<div id='index_search'>
+
+    <%= form_with method: :get do |f| %>
+        <div class='search_param'>
+            <h3>Departure Airport:</h3>
+            <%= select_tag('search[departure_airport_id]', options_for_select(@airports, selected: @search? @search[:departure_airport_id] : nil), :prompt => '-') %> 
+        </div>
+        <div class='search_param'>
+            <h3>Arrival Airport:</h3>
+            <%= select_tag('search[arrival_airport_id]', options_for_select(@airports, selected: @search? @search[:arrival_airport_id] : nil), :prompt => '-') %> 
+        </div>
+        <div class='search_param'>
+            <h3>Number of Passengers:</h3>
+            <%= select_tag('search[passengers]', options_for_select([1, 2, 3, 4], selected: @search? params[:search][:passengers] : nil), :prompt => '-') %>
+        </div>
+        <div class='search_param'>
+            <h3>Date:</h3>
+            <%= select_tag 'search[flight_date]', options_from_collection_for_select(@flights, 'flight_date', :flight_date_formatted, selected: @search? @search[:flight_date] : nil), :prompt => '-' %>
+        </div>
+
+        <%= f.submit 'Search' %>
+    <% end %>
+
+</div>
+
+<div id='flight_results_area'>
+
+    <% if @results && @results.length > 0%>
+        <%= form_with method: :get do |f| %>
+            <% @results.each do |result| %>
+                <div class='flight_result'>
+                    <%= radio_button_tag(:flight, result[:id]) %>
+                    <%= result.departure_airport[:airport_code] %> => <%= result.arrival_airport[:airport_code] %>
+                    <%= result.flight_date_formatted %>
+                    <%= result.flight_time %>
+                    <%= result.flight_duration.to_s + ' minutes' %>
+                </div>
+            <% end %>
+            <%= hidden_field_tag :passengers, params[:search][:passengers] %>
+            <%= f.submit 'Choose' %>
+        <% end %>
+    <% elsif @results %>
+        <%= 'No results found.' %>
+    <% end %>
+
+</div>

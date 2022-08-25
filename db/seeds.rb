@@ -19,14 +19,16 @@ airports = Airport.create([
 ])
 
 flights = Flight.create([
-    {departure_airport_id: 1, arrival_airport_id: 9, flight_duration: 120, flight_date: '2022-12-12'},
-    {departure_airport_id: 2, arrival_airport_id: 7, flight_duration: 90, flight_date: '2022-10-02'},
-    {departure_airport_id: 3, arrival_airport_id: 5, flight_duration: 20, flight_date: '2023-01-12'},
-    {departure_airport_id: 4, arrival_airport_id: 3, flight_duration: 45, flight_date: '2022-09-12'},
-    {departure_airport_id: 5, arrival_airport_id: 10, flight_duration: 220, flight_date: '2023-03-02'},
-    {departure_airport_id: 6, arrival_airport_id: 2, flight_duration: 10, flight_date: '2022-11-01'},
-    {departure_airport_id: 7, arrival_airport_id: 4, flight_duration: 170, flight_date: '2022-12-28'},
-    {departure_airport_id: 8, arrival_airport_id: 6, flight_duration: 70, flight_date: '2022-12-04'},
-    {departure_airport_id: 9, arrival_airport_id: 8, flight_duration: 30, flight_date: '2022-09-01'},
-    {departure_airport_id: 10, arrival_airport_id: 1, flight_duration: 300, flight_date: '2022-02-18'},
+    {departure_airport_id: 1, arrival_airport_id: 9, flight_duration: 120, flight_time: '5:30pm', flight_date: '2022-12-12'},
+    {departure_airport_id: 1, arrival_airport_id: 8, flight_duration: 110, flight_time: '1:20pm', flight_date: '2022-12-11'},
+    {departure_airport_id: 2, arrival_airport_id: 7, flight_duration: 90, flight_time: '12:00am', flight_date: '2022-10-02'},
+    {departure_airport_id: 3, arrival_airport_id: 5, flight_duration: 210, flight_time: '5:34am', flight_date: '2023-01-12'},
+    {departure_airport_id: 3, arrival_airport_id: 2, flight_duration: 20, flight_time: '12:05pm', flight_date: '2023-01-12'},
+    {departure_airport_id: 4, arrival_airport_id: 3, flight_duration: 45, flight_time: '7:07pm', flight_date: '2022-09-12'},
+    {departure_airport_id: 5, arrival_airport_id: 10, flight_duration: 220, flight_time: '7:11am', flight_date: '2023-03-02'},
+    {departure_airport_id: 6, arrival_airport_id: 2, flight_duration: 10, flight_time: '5:15pm', flight_date: '2022-11-01'},
+    {departure_airport_id: 7, arrival_airport_id: 4, flight_duration: 170, flight_time: '12:50pm', flight_date: '2022-12-28'},
+    {departure_airport_id: 8, arrival_airport_id: 6, flight_duration: 70, flight_time: '9:00pm', flight_date: '2022-12-04'},
+    {departure_airport_id: 9, arrival_airport_id: 8, flight_duration: 30, flight_time: '11:57pm', flight_date: '2022-09-01'},
+    {departure_airport_id: 10, arrival_airport_id: 1, flight_duration: 300, flight_time: '5:11pm', flight_date: '2022-02-18'},
 ])
