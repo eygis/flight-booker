@@ -6,19 +6,19 @@
     <%= form_with method: :get do |f| %>
         <div class='search_param'>
             <h3>Departure Airport:</h3>
-            <%= select_tag('search[departure_airport_id]', options_for_select(@airports, selected: @search? @search[:departure_airport_id] : nil), :prompt => '-') %> 
+            <%= select_tag('search[departure_airport_id]', options_for_select(@airports, params.dig(:search, :departure_airport_id)), :prompt => '-') %> 
         </div>
         <div class='search_param'>
             <h3>Arrival Airport:</h3>
-            <%= select_tag('search[arrival_airport_id]', options_for_select(@airports, selected: @search? @search[:arrival_airport_id] : nil), :prompt => '-') %> 
+            <%= select_tag('search[arrival_airport_id]', options_for_select(@airports, params.dig(:search, :arrival_airport_id)), :prompt => '-') %> 
         </div>
         <div class='search_param'>
             <h3>Number of Passengers:</h3>
-            <%= select_tag('search[passengers]', options_for_select([1, 2, 3, 4], selected: @search? params[:search][:passengers] : nil), :prompt => '-') %>
+            <%= select_tag('search[passengers]', options_for_select([1, 2, 3, 4], params.dig(:search, :passengers)), :prompt => '-') %>
         </div>
         <div class='search_param'>
             <h3>Date:</h3>
-            <%= select_tag 'search[flight_date]', options_from_collection_for_select(@flights, 'flight_date', :flight_date_formatted, selected: @search? @search[:flight_date] : nil), :prompt => '-' %>
+            <%= select_tag 'search[flight_date]', options_from_collection_for_select(@flights, 'flight_date', :flight_date_formatted, params.dig(:search, :flight_date)), :prompt => '-' %>
         </div>
 
         <%= f.submit 'Search' %>
