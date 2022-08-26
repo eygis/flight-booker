@@ -1,0 +1,10 @@
+<h1>Booking Details</h1>
+<h3><%= @flight.flight_date_formatted %> - <%= @flight[:flight_time] %></h3>
+<h3><%= @flight.departure_airport[:airport_code] %> to <%= @flight.arrival_airport[:airport_code] %></h3>
+
+<h2>Passenger Details:</h2>
+<% @booking.passengers.each_with_index do |passenger, i| %>
+    <h3>Passenger <%= i + 1 %></h3>
+    <p>Name: <%= passenger[:passenger_name] %></p>
+    <p>Contact E-mail: <%= passenger[:passenger_email] %></p>
+<% end %>

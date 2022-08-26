@@ -29,7 +29,7 @@
 <div id='flight_results_area'>
 
     <% if @results && @results.length > 0%>
-        <%= form_with method: :get do |f| %>
+        <%= form_with url: '/bookings/new', method: :get do |f| %>
             <% @results.each do |result| %>
                 <div class='flight_result'>
                     <%= radio_button_tag(:flight, result[:id]) %>

@@ -1,0 +1,16 @@
+<h1>New Booking</h1>
+
+<%= flash[:error] ? flash[:error] : nil %>
+
+    <%= form_with model: @booking do |f| %>
+        <%= f.fields_for :passengers do |sub_f| %>
+            <h3>Passenger <%= sub_f.options[:child_index] + 1 %></h3>
+            <%= sub_f.label :passenger_name %>
+            <%= sub_f.text_field :passenger_name %>
+            <%= sub_f.label :passenger_email %>
+            <%= sub_f.text_field :passenger_email %>
+            <%= sub_f.hidden_field :id %>
+        <% end %>
+        <%= f.hidden_field :flight_id, value: @flight %>
+        <%= f.submit 'Book' %>
+    <% end %>
