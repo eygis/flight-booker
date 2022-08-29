@@ -1,5 +1,7 @@
 <h1 id='index_title'><%= link_to 'Flight', root_path %></h1>
 
+<%= flash[:error] ? flash[:error] : nil %>
+
 <div id='index_search'>
 
     <%= form_with model: @flight, method: :get do |f| %>

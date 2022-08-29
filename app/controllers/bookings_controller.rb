@@ -1,4 +1,7 @@
 class BookingsController < ApplicationController
+
+  before_action :check_passengers
+
   def new
     @booking = Booking.new
     @passengers = params[:passengers].to_i
@@ -29,5 +32,12 @@ class BookingsController < ApplicationController
   end
   def passenger_params
     params.require(:booking).permit(:flight_id, passengers_attributes: [:id, :passenger_name, :passenger_email])
+  end
+
+  def check_passengers
+    if params[:passengers].empty?
+      flash[:error] = 'Passengers cannot be empty.'
+      redirect_to root_path
+    end
   end
 end
