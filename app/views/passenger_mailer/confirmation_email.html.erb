@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello,</h1>
+    <p>
+      You have successfully booked a plane ticket.
+    </p>
+    <p>
+      The following passengers were registered for this booking:
+      <% @booking.passengers.each do |passenger| %>
+        <p><%= passenger.passenger_name %></p>
+      <% end %>
+    </p>
+    <p>Thanks for booking and have a great day!</p>
+  </body>
+</html>

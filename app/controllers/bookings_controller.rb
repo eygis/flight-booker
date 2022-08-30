@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  before_action :check_passengers
+  before_action :check_passengers, only: [:new]
 
   def new
     @booking = Booking.new
@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(passenger_params)
     
     if @booking.save
+      PassengerMailer.with(booking: @booking).confirmation_email.deliver_now
       redirect_to booking_path(@booking)
     else
       flash[:error] = 'error'

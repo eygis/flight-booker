@@ -1,0 +1,11 @@
+Hello,
+===============================================
+
+You have successfully booked a plane ticket.
+
+The following passengers were registered for this booking:
+<% @booking.passengers.each do |passenger| %>
+<%= passenger.passenger_name %>
+<% end %>
+
+Thanks for booking and have a great day!
